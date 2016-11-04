@@ -98,9 +98,10 @@ module.exports.server  = function(cfg) {
     catch (e) {
       console.log(e);
     }
-    // traitement des requetes POST de type '/files/*' pour servir
+    // traitement des requetes POST ou GET de type '/files/*' pour servir
     // les fichiers du dossier 'monapp/files'
     app.post('/files/:name', send(cfg.appdir, cfg.verbose));
+    app.get('/files/:name', send(cfg.appdir, cfg.verbose));
     // on peut maintenant accepter les connexions sur le port choisi
     http.listen(cfg.port, function(){
       this.up = true;
