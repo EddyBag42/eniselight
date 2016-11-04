@@ -1,12 +1,12 @@
 # enise
 
 ----
-## what is enise?
+## what is eniselight ?
 An express-based node module to provide our students a pre-configured web-server engine with only two lines of code
 
 ----
 ## usage
-    var enise  = require('enise')
+    var enise  = require('eniselight')
     var server = enise.server({ port: 8080, verbose: true });
 
 ----
