@@ -5,15 +5,15 @@
 // private npm modules
 var express       = require('express');
 var bodyParser    = require('body-parser');
-var cookieParser  = require('cookie-parser');
-var io_cookie     = require('socket.io-cookie-parser');
+// var cookieParser  = require('cookie-parser');
+// var io_cookie     = require('socket.io-cookie-parser');
 var fs            = require('fs');
-var nodedump      = require('nodedump');
-var multer        = require('multer');
+// var nodedump      = require('nodedump');
+// var multer        = require('multer');
 
 // exported npm modules
 var path          = require('path');
-var mv            = require('mv');
+// var mv            = require('mv');
 
 // local modules 
 var pg            = require('./lib/pg');
@@ -22,7 +22,7 @@ var send          = require('./lib/send');
 // on crée l'app express
 var app           = express();
 var http          = require('http').Server(app);
-var io            = require('socket.io')(http);
+// var io            = require('socket.io')(http);
 
 /**
  * Module exports.
@@ -30,11 +30,11 @@ var io            = require('socket.io')(http);
  */
 
 module.exports.up      = false;
-module.exports.mv      = mv;
+// module.exports.mv      = mv;
 module.exports.path    = path;
-module.exports.dump    = nodedump.dump;
-module.exports.io      = io;
-module.exports.upload  = multer({ dest: '/tmp/node_uploads', limits:{fileSize: 1000000} }).any();
+// module.exports.dump    = nodedump.dump;
+// module.exports.io      = io;
+// module.exports.upload  = multer({ dest: '/tmp/node_uploads', limits:{fileSize: 1000000} }).any();
 module.exports.router  = express.Router;
 // méthode d'initialisation du web server
 // -> placement des routes prédéfinies
@@ -57,8 +57,8 @@ module.exports.server  = function(cfg) {
     app.use(bodyParser.urlencoded({ extended: true }));
     // parsing des COOKIES
     // pour peupler req.cookies
-    app.use(cookieParser());
-    io.use(io_cookie());
+    // app.use(cookieParser());
+    // io.use(io_cookie());
     // messages console
     if (cfg.verbose) app.use(debug);
     // utilisation du routeur principal de l'application
@@ -90,7 +90,7 @@ module.exports.server  = function(cfg) {
     // warning si l'application n'a pas de dossier 'public'
     catch (e) {
       ok = false;
-      console.log("Warning : you're application doesn't seem have a 'public' directory.");
+      console.log("Warning : you're application doesn't seem to have a 'public' directory.");
     }
     try {
       if (ok) app.use(express.static(public_path));
