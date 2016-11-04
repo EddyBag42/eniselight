@@ -1,6 +1,6 @@
 {
   "name": "eniselight",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "eniselight node server",
   "main": "index.js",
   "dependencies": {
